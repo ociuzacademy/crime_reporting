@@ -1,0 +1,207 @@
+
+{% extends 'User/header_footer.html' %}
+    
+{% block content %}
+<style>
+  
+  th{
+    background-color: #fc864e;
+  }
+ table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 310px;
+      }
+      table td {
+        border: solid 1px #666;
+        width: 110px;
+        word-wrap: break-word;
+      }
+
+  
+</style>
+<div class="inner-banner">
+    <section class="w3l-breadcrumb py-5">
+        <div class="container py-lg-5 py-md-3">
+            <h2 class="title"></h2>
+        </div>
+    </section>
+</div>
+<!-- banner bottom shape -->
+<div class="position-relative">
+    <div class="shape overflow-hidden">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+<!-- banner bottom shape -->
+<!-- contacts -->
+
+      
+<div class="container">
+
+
+
+
+
+  <div class="card-body"><br>
+            <h3><center>  Booking Details<center></h3><br>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                <th >Sl.no</th>
+                  <th>Details of the lawyer </th>
+                  <th>Booking Details</th>
+                  
+                  <th>Status</th>
+                 
+                </tr>
+                </thead>
+                <tbody>
+                {% for x in var  %}
+
+                <tr>
+                  <td>{{forloop.counter}}</td>
+
+                  <td>
+                    <img src="{{x.lawyer_id.Lw_Image.url}}" height="150px;" width="150px;"><br>{{x.lawyer_id.Lw_Fname}}&nbsp;{{x.lawyer_id.Lw_Lname}}<br>
+                  Phone:{{x.lawyer_id.Lw_Phone}}<br>
+                 Email:{{x.lawyer_id.Lw_Email}}<br>
+                  Address:{{x.lawyer_id.Lw_Address}},<br>District:{{x.lawyer_id.Lw_District}},<br>
+                  State:{{x.lawyer_id.Lw_State}}<br>{{x.lawyer_id.Lw_Pin}}</td>
+                 <td>Fees:{{x.lawyer_id.Lw_Fees}}<br>
+                   Case Catagory:{{x.lawyer_id.Lw_Catgry}}<br><br>
+                  Booking date:{{x.date}}<br>
+                  Booking Time:{{x.time}}<br>
+                </td>
+                  <td>{{x.status}}</td>
+
+               
+                 
+                </tr>
+                {% endfor %}
+               
+               
+                </tbody>
+                
+              </table>
+            </div>
+
+
+
+
+
+
+
+<div class="card-body"><br>
+            <h3><center>Approved Booking Details<center></h3><br>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                <th >Sl.no</th>
+                  <th>Details of the lawyer </th>
+                  <th>Booking Details</th>
+                  
+                  <th>Status</th>
+                  <th>Meeting Link</th>
+                 
+                </tr>
+                </thead>
+                <tbody>
+                {% for x in var1  %}
+
+                <tr>
+                  <td>{{forloop.counter}}</td>
+
+                  <td>
+                    <img src="{{x.lawyer_id.Lw_Image.url}}" height="150px;" width="150px;"><br>{{x.lawyer_id.Lw_Fname}}&nbsp;{{x.lawyer_id.Lw_Lname}}<br>
+                  Phone:{{x.lawyer_id.Lw_Phone}}<br>
+                 Email:{{x.lawyer_id.Lw_Email}}<br>
+                  Address:{{x.lawyer_id.Lw_Address}},<br>District:{{x.lawyer_id.Lw_District}},<br>
+                  State:{{x.lawyer_id.Lw_State}}<br>{{x.lawyer_id.Lw_Pin}}</td>
+                 <td>Fees:{{x.lawyer_id.Lw_Fees}}<br>
+                   Case Catagory:{{x.lawyer_id.Lw_Catgry}}<br><br>
+                  Booking date:{{x.date}}<br>
+                  Booking Time:{{x.time}}<br>
+                </td>
+                  <td>{{x.status}}</td>
+
+               <!-- <td>{{x.link}}</td> -->
+<td><a href="{{x.link}}" target="_blank">{{x.link}}</a>
+               
+                 
+                </tr>
+                {% endfor %}
+               
+               
+                </tbody>
+                
+              </table>
+            </div>
+
+
+
+
+<div class="card-body"><br>
+            <h3><center> Rejected Booking Details<center></h3><br>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                <th >Sl.no</th>
+                  <th>Details of the lawyer </th>
+                  <th>Booking Details</th>
+                  
+                  <th>Status</th>
+                 
+                </tr>
+                </thead>
+                <tbody>
+                {% for x in var2  %}
+
+                <tr>
+                  <td>{{forloop.counter}}</td>
+
+                  <td>
+                    <img src="{{x.lawyer_id.Lw_Image.url}}" height="150px;" width="150px;"><br>{{x.lawyer_id.Lw_Fname}}&nbsp;{{x.lawyer_id.Lw_Lname}}<br>
+                  Phone:{{x.lawyer_id.Lw_Phone}}<br>
+                 Email:{{x.lawyer_id.Lw_Email}}<br>
+                  Address:{{x.lawyer_id.Lw_Address}},<br>District:{{x.lawyer_id.Lw_District}},<br>
+                  State:{{x.lawyer_id.Lw_State}}<br>{{x.lawyer_id.Lw_Pin}}</td>
+                 <td>Fees:{{x.lawyer_id.Lw_Fees}}<br>
+                   Case Catagory:{{x.lawyer_id.Lw_Catgry}}<br><br>
+                  Booking date:{{x.date}}<br>
+                  Booking Time:{{x.time}}<br>
+                </td>
+                  <td>{{x.status}}</td>
+
+               
+                 
+                </tr>
+                {% endfor %}
+               
+               
+                </tbody>
+                
+              </table>
+            </div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<br><br>
+
+
+
+ 
+
+
+{% endblock %}

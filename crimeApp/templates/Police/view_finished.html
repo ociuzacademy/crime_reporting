@@ -1,0 +1,97 @@
+
+{% extends 'Police/header_footer.html' %}
+    
+{% block content %}
+
+<style>
+  
+  th{
+    background-color: #fc864e;
+    text-align: center;
+  }
+ table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 310px;
+      }
+      table td {
+        border: solid 1px #666;
+        width: 110px;
+        word-wrap: break-word;
+      }
+
+  
+</style>
+<div class="inner-banner">
+    <section class="w3l-breadcrumb py-5">
+        <div class="container py-lg-5 py-md-3">
+            <h2 class="title"></h2>
+        </div>
+    </section>
+</div>
+<!-- banner bottom shape -->
+<div class="position-relative">
+    <div class="shape overflow-hidden">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+   
+<div class="container">
+
+  <div class="card-body"><br>
+            <h3><center>View Complaints<center></h3><br>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                <th >Sl.no</th>
+                  <th>Petitioner Details </th>
+                  <th>Case Details</th>
+
+                  <th>Status</th>
+<!-- <th>hhhh</th> -->
+                 
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for x in db  %}
+
+                <tr>
+                  <td>{{forloop.counter}}</td>
+
+                  <td>
+                    {{x.petitioner_name}},<br>
+                    {{x.petitioner_id}}:{{petitioner_id_no}}<br>
+                    {{x.petitioner_phone}},<br>{{x.petitioner_email}}<br>
+                    Address:{{x.petitioner_address}},<br>
+                    {{x.petitioner_state}},{{x.petitioner_district}}
+
+                  </td>
+                  <td>
+                    <img src="{{x.pic_complaint.url}}" height="150px" width="150px"><br>Subject:{{x.subject}}<br>
+                 DEscription:{{x.description}}<br>
+
+
+<a href="{{x.pic_complaint.url}}" download>Download Complaint</a>
+               </td>
+                 
+                 
+                  <td>
+    <a href="/upload/?id={{x.id}}"><button style="background-color: #fe5200;">Upload Case File</button></a></td>
+
+                <!-- <td><a href="{{x.pic_complaint.url}}" download>download</a></td> -->
+                 
+                </tr>
+                {% endfor %}
+               
+               
+                </tbody>
+                
+              </table>
+            </div>
+
+          </div>
+          
+  {% endblock %}

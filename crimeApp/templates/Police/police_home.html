@@ -1,0 +1,99 @@
+{% extends 'Police/header_footer.html' %}
+    
+{% block content %}
+<!-- //header -->
+<!-- main-slider -->
+<div class="position-relative">
+    <div class="shape overflow-hidden">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor">
+            </path>
+        </svg>
+    </div>
+</div>
+<!-- //banner image bottom shape -->
+<!-- home page block1 -->
+
+<!-- //home page block1 -->
+<!-- middle -->
+
+
+    <!-- <div class="middle py-5" id="facts"> -->
+        <!-- <div class="container pt-lg-3"> -->
+            <div class="welcome-left text-center py-md-5 py-3">
+                <!-- <h3 class="title-big">Over 93% of all Donations go directly to Projects.</h3>
+                <p class="my-3">Under 7% for admin, fundraising, and salaries.</p> -->
+          <!--       <h4>Thank you for your continued Support </h4>
+                <a href="#donate" class="btn btn-style btn-primary mt-sm-5 mt-4"><span class="fa fa-heart mr-1"></span> Donate Now</a> -->
+            </div>
+        <!-- </div> -->
+    <!-- </div> -->
+
+
+    <!-- //middle -->
+
+<!-- /bottom-grids-->
+
+<!-- //bottom-grids-->
+<!-- stats -->
+
+<!-- //stats -->
+<!-- bg -->
+<div class="w3l-bg py-5">
+    <div class="container py-lg-5 py-md-4">
+        <div class="welcome-left text-center py-lg-4">
+           
+        </div>
+    </div>
+</div>
+<!-- //bg -->
+
+
+
+<section class="w3l-clients py-5" id="clients">
+    <div class="call-w3 py-lg-5 py-md-4">
+        <!-- <div class="container"> -->
+            <h3 class="title-big text-center">Welcome {{name}}</h3>
+            <!-- <div class="company-logos text-center mt-5">
+                <div class="row logos">
+                    <div class="col-lg-2 col-md-3 col-4">
+                        <img src="/static/assets/images/brand1.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-4">
+                        <img src="/static/assets/images/brand2.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-4">
+                        <img src="/static/assets/images/brand3.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-4 mt-md-0 mt-4">
+                        <img src="/static/assets/images/brand4.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-4 mt-lg-0 mt-4">
+                        <img src="/static/assets/images/brand5.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-lg-2 col-md-3 col-4 mt-lg-0 mt-4">
+                        <img src="/static/assets/images/brand6.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+   {% if error %}
+<script type="text/javascript">
+  swal("Error!", "{{error}}", "error");
+</script>
+{% endif %}
+
+{% if success %}
+<script type="text/javascript">
+  swal("Congrats!", "{{success}}", "success");
+</script>
+{% endif %}
+
+{% if info %}
+<script type="text/javascript">
+  swal("Information!", "{{info}}", "info");
+</script>
+{% endif %}
+ {% endblock %}

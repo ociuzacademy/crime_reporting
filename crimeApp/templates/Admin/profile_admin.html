@@ -1,0 +1,64 @@
+   {% extends 'Admin/header_footer.html' %}
+    
+{% block content %}
+
+<div class="w3l-footer-main">
+  <div class="w3l-sub-footer-content">
+   <footer class="footer-14">
+          <div id="footers14-block">
+              <div class="container">
+                  <div class="footers20-content">
+             
+                  </div>
+                  <div class="footers14-bottom d-flex">
+                      <div class="copyright">
+                          <!-- <p>© 2020 Save Poor. All rights reserved. Design by <a href="https://w3layouts.com/" -->
+                                  <!-- target="_blank">W3Layouts</a></p> -->
+                      </div>
+                      <div class="language-select d-flex">
+                          <!-- <span class="fa fa-language" aria-hidden="true"></span> -->
+                          <!-- <select>
+                              <option>English</option>
+                              <option>Estonina</option>
+                              <option>Deutsch</option>
+                              <option>Nederlan;ds</option>
+                          </select> -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </footer>
+      <section class="_form-3">
+          <div class="form-main">
+              <div class="container">
+                  <div class="middle-section grid-column top-bottom">
+                      <div class="image grid-three-column">
+                          <img src="assets/images/subscribe.png" alt="" class="img-fluid radius-image-full">
+                      </div>
+                {% for x in db  %}
+
+                      <div class="text-grid grid-three-column">
+                         <label for="name"><b>Name:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{x.User_Name}}</label><br><br>
+              <!-- <input type="name" class="form-control" id="name"  value="{{x.name}}" required><br> -->
+
+           
+              <label for="email"><b>Email:</b>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;{{x.User_Email}}</label><br><br>
+              
+              <label for="moblie no"><b>Moblie no:</b>&nbsp;&nbsp;&nbsp;&nbsp;{{x.User_Phone}}</label><br><br>
+               <label for="moblie no"><b>Password:</b>&nbsp;&nbsp;&nbsp;&nbsp;{{x.User_Password}}</label><br><br>
+                      </div>
+		{% endfor %}
+
+                      <div class="form-text grid-three-column">
+                          <form action="/" method="GET">
+                           
+                              <a href="/edit_profile_admin/"><button type="button" class="btn btn-style btn-primary">Edit</button></a>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <!-- Footers-14 -->
+     
+ {% endblock %}

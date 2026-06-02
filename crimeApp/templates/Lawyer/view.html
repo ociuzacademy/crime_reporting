@@ -1,0 +1,90 @@
+
+{% extends 'Lawyer/header_footer.html' %}
+    
+{% block content %}
+
+<style>
+  
+  th{
+    background-color: #fc864e;
+    text-align: center;
+  }
+ table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 310px;
+      }
+      table td {
+        border: solid 1px #666;
+        width: 110px;
+        word-wrap: break-word;
+      }
+
+  
+</style>
+<div class="inner-banner">
+    <section class="w3l-breadcrumb py-5">
+        <div class="container py-lg-5 py-md-3">
+            <h2 class="title"></h2>
+        </div>
+    </section>
+</div>
+<!-- banner bottom shape -->
+<div class="position-relative">
+    <div class="shape overflow-hidden">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+   
+<div class="container">
+
+  <div class="card-body"><br>
+            <h3><center>Feedbacks....<center></h3><br>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                <th >Sl.no</th>
+                  <th>Sender Details </th>
+                  <th>Feedback </th>
+
+
+
+                 
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for x in var  %}
+
+                <tr>
+                  <td>{{forloop.counter}}</td>
+
+                  <td>Name:{{x.user_id.User_Name}}<br>
+                    Email ID:{{x.user_id.User_Email}},<br>
+                    </td>
+                
+               
+                  
+                  <td>{{x.message}}</td>
+              
+            
+               
+                 
+                </tr>
+                {% endfor %}
+               
+               
+                </tbody>
+                
+              </table>
+            </div>
+
+
+
+      </div>
+
+
+  
+  {% endblock %}

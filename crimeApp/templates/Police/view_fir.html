@@ -1,0 +1,110 @@
+
+{% extends 'Police/header_footer.html' %}
+    
+{% block content %}
+<style>
+  
+  th{
+    background-color: #fc864e;
+    text-align: center;
+  }
+ table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 310px;
+      }
+      table td {
+        border: solid 1px #666;
+        width: 110px;
+        word-wrap: break-word;
+      }
+
+  
+</style>
+<div class="inner-banner">
+    <section class="w3l-breadcrumb py-5">
+        <div class="container py-lg-5 py-md-3">
+            <h2 class="title"></h2>
+        </div>
+    </section>
+</div>
+<!-- banner bottom shape -->
+<div class="position-relative">
+    <div class="shape overflow-hidden">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+   
+<div class="container">
+
+  <div class="card-body"><br>
+            <h3><center>First Information Report (FIR) <center></h3><br>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                <th >Sl.no</th>
+                  <th>Petitioner Details</th>
+                  <th>Case Details</th>
+                  <th>FIR</th>
+
+
+      
+
+                 
+                </tr>
+                </thead>
+                <tbody>
+                {% for x in var  %}
+
+                <tr>
+                  <td>{{forloop.counter}}</td>
+
+                  <td>Name:{{x.user_id.User_Name}}<br>
+                    Email ID:{{x.user_id.User_Email}}<br>
+                    Address:{{x.user_id.User_Address}}<br>
+                  District:{{x.user_id.User_District}}<br>
+                   Phone number:{{x.user_id.User_Phone}}<br>
+
+                    </td>
+                
+               
+                  
+                  <td>Subject:{{x.complaint_id.subject}}<br>
+                  Description:{{x.complaint_id.description}}<br>
+                  Petition image:<img src="{{x.complaint_id.pic_complaint.url}}" height="50" width="50"></td>
+                  
+              
+            
+                <td>
+                    <img src="{{x.fir_pic.url}}" height="150px" width="150px"><br>
+
+
+<a href="{{x.fir_pic.url}}" download>Download FIR</a><br>
+Name of officer:{{x.fir_off_name}}<br>
+Date of submission:{{x.fir_date}}<br>
+Evidence:{{x.fir_evidence}}<br>
+
+Findings:{{x.fir_findings}}<br>
+
+
+               </td>
+                 
+                </tr>
+                {% endfor %}
+               
+               
+                </tbody>
+                
+              </table>
+            </div>
+
+
+
+
+
+ 
+            </div>
+           
+  {% endblock %}

@@ -1,0 +1,82 @@
+   {% extends 'Admin/header_footer.html' %}
+    
+{% block content %}
+
+<div class="w3l-footer-main">
+  <div class="w3l-sub-footer-content">
+   <footer class="footer-14">
+          <div id="footers14-block">
+              <div class="container">
+                  <div class="footers20-content">
+             
+                  </div>
+                  <div class="footers14-bottom d-flex">
+                      <div class="copyright">
+                          <!-- <p>© 2020 Save Poor. All rights reserved. Design by <a href="https://w3layouts.com/" -->
+                                  <!-- target="_blank">W3Layouts</a></p> -->
+                      </div>
+                      <div class="language-select d-flex">
+                          <!-- <span class="fa fa-language" aria-hidden="true"></span> -->
+                          <!-- <select>
+                              <option>English</option>
+                              <option>Estonina</option>
+                              <option>Deutsch</option>
+                              <option>Nederlan;ds</option>
+                          </select> -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </footer>
+      <section class="_form-3">
+          <div class="form-main">
+              <div class="container">
+                  <div class="middle-section grid-column top-bottom">
+                      <div class="image grid-three-column">
+                          <img src="assets/images/subscribe.png" alt="" class="img-fluid radius-image-full">
+                      </div>
+                {% for x in db  %}
+
+                      <div class="text-grid grid-three-column">
+                         <form action="/edit_profile_admin/" method="POST">
+    {% csrf_token %}
+        <div class='form-group has-feedback w3ls'>
+         <b>Full Name:</b> <input class='form-control' id='name' name='name' value="{{x.User_Name}}" type='text'>
+          <span class='glyphicon glyphicon-ok form-control-feedback'></span>
+        </div>
+        <div class='form-group has-feedback w3ls'>
+          <b>Email Address:</b><input class='form-control' id='Address' name='email' value="{{x.User_Email}}" type='text'>
+          <span class='glyphicon glyphicon-ok form-control-feedback'></span>
+        </div>
+         <div class='form-group has-feedback w3ls'>
+          <b>Password:</b><input class='form-control' id='Address' name='password' value="{{x.User_Password}}" type='text'>
+          <span class='glyphicon glyphicon-ok form-control-feedback'></span>
+        </div>
+      
+        <div class='form-group has-feedback w3ls'>
+         <b> Phone:</b><input class='form-control' id='Phone' name='phone' value="{{x.User_Phone}}" pattern="[1-9]{1}[0-9]{9}" maxlength="10" type='tel'>
+          <span class='glyphicon glyphicon-ok form-control-feedback'></span>
+        </div>
+       <!--  <div class='form-group has-feedback wthree'>
+          <b>Email address:</b><input class='form-control' id='email' name='email' value="{{x.email}}" type='email'><span class='glyphicon glyphicon-ok form-control-feedback'></span>
+        </div> -->
+       
+       <center> <div class="col-6">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
+          </div></center>
+          <div class="col-6">
+          </div>
+      </form>
+                      </div>
+		{% endfor %}
+
+                      <!-- <div class="form-text grid-three-column">
+                         <img src="/static/assets/images/download.png" height="200">
+                      </div> -->
+                  </div>
+              </div>
+          </div>
+      </section>
+      <!-- Footers-14 -->
+     
+ {% endblock %}

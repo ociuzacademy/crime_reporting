@@ -1,0 +1,257 @@
+
+{% extends 'Admin/header_footer.html' %}
+    
+{% block content %}
+<style>
+  
+  th{
+    background-color: #fc864e;
+     text-align: center;
+  }
+ table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 310px;
+      }
+      table td {
+        border: solid 1px #666;
+        width: 110px;
+        word-wrap: break-word;
+      }
+
+  
+</style>
+<div class="inner-banner">
+    <section class="w3l-breadcrumb py-5">
+        <div class="container py-lg-5 py-md-3">
+            <h2 class="title"></h2>
+        </div>
+    </section>
+</div>
+<!-- banner bottom shape -->
+<div class="position-relative">
+    <div class="shape overflow-hidden">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+<!-- banner bottom shape -->
+<!-- contacts -->
+
+      
+<div class="container">
+
+
+
+            {% if var_count > 0 %}
+            <div class="card-body"><br>
+            <h3><center>Lawyer Pending List<center></h3><br>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                <th >Sl.no</th>
+                  <th>Name </th>
+                  <th> Contact</th>
+                  <th>Location</th>
+                  <th>Proof</th>
+
+                  <th>Action</th>
+
+                 
+                </tr>
+                </thead>
+                <tbody>
+                {% for x in db  %}
+
+                <tr>
+                  <td>{{forloop.counter}}</td>
+
+                  <td>
+                    <img src="{{x.Lw_Image.url}}" height="150px;" width="150px;"><br>{{x.Lw_Fname}}&nbsp;{{x.Lw_Lname}}</td>
+                  <td>Phone:{{x.Lw_Phone}}<br>
+                 Email:{{x.Lw_Email}}</td>
+                  <td>{{x.Lw_Address}},<br>{{x.Lw_District}},<br>{{x.Lw_State}}<br>{{x.Lw_Pin}}</td>
+                  <td>{{x.Lw_Proof}},<br>{{x.Lw_ProofNo}}<br>
+                  Enrollment no:{{x.Lw_EnrollNo}}</td>
+
+                  <td><a  href="/approve_lawyer/?id={{x.id}}"><button style="background-color: #fe5200;"> Approve</button></a>
+    <a href="/reject_lawyer/?id={{x.id}}"><button style="background-color: #fe5200;">Reject</button></a></td>
+
+               
+                 
+                </tr>
+                {% endfor %}
+               
+               
+                </tbody>
+                
+              </table>
+            </div>
+
+            {% endif %}
+
+            <!-- /.card-body -->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% if var1_count > 0 %}
+
+  <div class="card-body"><br>
+            <h3><center> Approved Lawyer List<center></h3><br>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                <th >Sl.no</th>
+                  <th>Name </th>
+                  <th> Contact</th>
+                  <th>Location</th>
+                  <th>Proof</th>
+
+                  <th>Action</th>
+
+                 
+                </tr>
+                </thead>
+                <tbody>
+                {% for x in db1  %}
+
+                <tr>
+                  <td>{{forloop.counter}}</td>
+
+                  <td>
+                    <img src="{{x.Lw_Image.url}}" height="150px;" width="150px;"><br>{{x.Lw_Fname}}&nbsp;{{x.Lw_Lname}}</td>
+                  <td>Phone:{{x.Lw_Phone}}<br>
+                 Email:{{x.Lw_Email}}</td>
+                  <td>{{x.Lw_Address}},<br>{{x.Lw_District}},<br>{{x.Lw_State}}<br>{{x.Lw_Pin}}</td>
+                  <td>{{x.Lw_Proof}},<br>{{x.Lw_ProofNo}}<br>
+                  Enrollment no:{{x.Lw_EnrollNo}}</td>
+
+                  <td>
+    <a href="/reject_lawyer/?id={{x.id}}"><button style="background-color: #fe5200;">Reject</button></a></td>
+
+               
+                 
+                </tr>
+                {% endfor %}
+               
+               
+                </tbody>
+                
+              </table>
+            </div>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+{% if var2_count > 0 %}
+
+
+  <div class="card-body"><br>
+            <h3><center>Lawyer Rejected List<center></h3><br>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                <th >Sl.no</th>
+                  <th>Name </th>
+                  <th> Contact</th>
+                  <th>Location</th>
+                  <th>Proof</th>
+
+                  <th>Action</th>
+
+                 
+                </tr>
+                </thead>
+                <tbody>
+                {% for x in db2  %}
+
+                <tr>
+                  <td>{{forloop.counter}}</td>
+
+                  <td>
+                    <img src="{{x.Lw_Image.url}}" height="150px;" width="150px;"><br>{{x.Lw_Fname}}&nbsp;{{x.Lw_Lname}}</td>
+                  <td>Phone:{{x.Lw_Phone}}<br>
+                 Email:{{x.Lw_Email}}</td>
+                  <td>{{x.Lw_Address}},<br>{{x.Lw_District}},<br>{{x.Lw_State}}<br>{{x.Lw_Pin}}</td>
+                  <td>{{x.Lw_Proof}},<br>{{x.Lw_ProofNo}}<br>
+                  Enrollment no:{{x.Lw_EnrollNo}}</td>
+
+                  <td><a  href="/approve_lawyer/?id={{x.id}}"><button style="background-color: #fe5200;"> Approve</button></a>
+   </td>
+
+               
+                 
+                </tr>
+                {% endfor %}
+               
+               
+                </tbody>
+                
+              </table>
+            </div>
+
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<br><br>
+
+  {% endblock %}

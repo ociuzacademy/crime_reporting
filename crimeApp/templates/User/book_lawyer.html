@@ -1,0 +1,120 @@
+  
+{% extends 'User/header_footer.html' %}
+    
+{% block content %}
+<div class="inner-banner">
+    <section class="w3l-breadcrumb py-5">
+        <div class="container py-lg-5 py-md-3">
+            <h2 class="title"></h2>
+        </div>
+    </section>
+</div>
+<!-- banner bottom shape -->
+<div class="position-relative">
+    <div class="shape overflow-hidden">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+<!-- banner bottom shape -->
+<!-- contacts -->
+<section class="w3l-contact-7 py-5" id="contact">
+    <div class="contacts-9 py-lg-5 py-md-4">
+        <div class="container">
+            <div class="top-map">
+                <div class="row map-content-9">
+                    <div class="col-lg-8">
+                       <center> &nbsp;&nbsp;&nbsp;&nbsp;<h3 class="title-big">Enquire Here...</h3></center><br>
+                        <br>
+                        <form action="/book_lawyer/" class="text-right" name="form" method="post" onSubmit="return validate()">
+                            {% csrf_token %}
+                            <div class="form-grid">
+                  <label >Date:</label>        
+                 
+            <div class="form-group">
+                <input type="date"  maxlength="10" id="date_picker" class="form-control textbox" name="date" placeholder="Date" required="">
+
+
+<input name="lawyer_id" value="{{law_idd}}" type="hidden">
+
+
+
+            </div>
+                   
+               
+                  <label >Time:</label>        
+
+   <select name="time" id="city" class="form-control">
+                            <option vale="-1" disabled selected>Select Consulting Time </option>
+
+                            <option value="9.00AM-10.00AM">9.00AM-10.00AM</option>
+                            <option value="10.00AM-11.00AM">10.00AM-11.00AM</option>
+                            <option value="11.00AM-12.00PM">11.00AM-12.00PM</option>
+                            <option value="1.00PM-2.00PM">1.00PM-2.00PM</option>
+                            <option value="2.00PM-3.00PM">2.00PM-3.00PM</option>
+                            <option value="3.00PM-4.00PM" >3.00PM-4.00PM</option>
+                            <option value="4.00PM-5.00PM" >4.00PM-5.00PM</option>
+                            <option value="6.00PM-7.00PM" >6.00PM-7.00PM</option>
+                            <option value="7.00PM-8.00PM" >7.00PM-8.00PM</option>
+</select>
+
+
+                  <label style="color:white;" >Time:</label>        
+
+                            <button type="submit" class="btn btn-primary btn-style mt-3">submit</button>
+
+                        </form>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+   {% if error %}
+<script type="text/javascript">
+  swal("Error!", "{{error}}", "error");
+</script>
+{% endif %}
+
+{% if success %}
+<script type="text/javascript">
+  swal("Congrats!", "{{success}}", "success");
+</script>
+{% endif %}
+
+{% if info %}
+<script type="text/javascript">
+  swal("Information!", "{{info}}", "info");
+</script>
+{% endif %}
+<script language="Javascript">
+function validate()
+{
+if(document.form.city.selectedIndex=="")
+{
+alert ( "Please select Visiting time!");
+return false;
+}
+
+}
+</script>
+
+ <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script language="javascript">
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+
+    today = yyyy + '-' + mm + '-' + dd;
+    $('#date_picker').attr('min',today);
+</script>
+   
+
+
+
+
+{% endblock %}
